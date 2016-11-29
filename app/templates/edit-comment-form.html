@@ -1,0 +1,16 @@
+﻿<div style='box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); ' class='well well-sm'>
+    <form name="formEdit" novalidate>
+        <div ng-show="formEdit.content.$error.required" style="padding-top:10px; padding-bottom: 10px;">
+            <p>Nên có nội dung nha mắm heo ơi</p>
+        </div>
+        <img width='25' height='25' ng-src='http://ktmsocialapi.somee.com/Image/User/Upload/{{cmt.image}}' />
+        <a class='text-success' href='/User/TimeLine/{{cmt.username}}'>{{cmt.name}}</a>: <br><br>
+        <textarea name="content"  placehover='Chỉnh sửa nội dung bình luận.' class="form-control"
+                   ng-model="cmt.content" required rows="4"></textarea>
+            <button style="margin: 10px 10px 10px 0px;"  ng-click="!formEdit.content.$error.required && EditComment()" class='btn btn-info'>Cập nhật <i class='material-icons' style='font-size:14px; cursor: pointer; color: black;'>border_color</i></button>
+            <br>
+            <code>Bình luận lúc: {{cmt.date}} </code>
+            <br>
+            <code>Chỉnh sửa lần cuối lúc: {{cmt.edit_At}} </code>
+</form>
+</div>

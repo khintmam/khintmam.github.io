@@ -1,0 +1,35 @@
+﻿<div class="well" style="padding-bottom: 0px; margin: 0px 0px 10px 0px; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)">
+    <form id="addfeed" class="form-horizontal" role="form" novadilation name="myform">
+        <ul style="list-style-type: none; padding-left: 0px;">
+            <li>
+                <span ng-show="myform.title.$error.required && !myform.title.$pristine" class="bg-danger">Nhập tiêu đề mắm ời mắm ơi</span>
+            </li>
+            <li>
+                <span ng-show="myform.content.$error.required && !myform.content.$pristine" class="bg-danger">Chưa nhập nội dung kìa :p</span>
+            </li>
+        </ul>
+        <h4>Có gì mới không mắm ?</h4>
+        <input type="text" ng-model="title" name="title" placeholder="Tiêu đề của mắm..." class="form-control" required />
+        <div class="form-group" style="padding:14px;">
+            <textarea ng-model="content" name="content" class="form-control" placeholder="Cập nhật status của bạn" rows="3" required></textarea>
+            <br />
+            <div style=" display: flex; flex-wrap: wrap;">
+
+                <span ng-repeat="f in files">
+                    <figure>
+                        <img ngf-thumbnail="f" style="margin: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)" width="60" height="60">
+                        <figcaption style="font-size: 9px;">{{f.name | limitTo:5 }}...</figcaption>
+                    </figure>
+                </span>
+            </div>
+            <button class="btn btn-primary" ngf-select ng-model="files" multiple
+                    accept="image/*">
+                <i class="fa fa-picture-o" aria-hidden="true"></i> Thêm ảnh
+            </button>
+            <button ng-disabled="myform.content.$invalid || myform.title.$invalid" ng-click="UploadFeed(files)" class="btn btn-primary" id="btnAddMultiImage" type="button"><i class="fa fa-tags" aria-hidden="true"></i> Đăng bài</button>
+        </div>
+
+    </form>
+</div>
+
+

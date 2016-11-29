@@ -1,0 +1,39 @@
+﻿<style>
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        .container {
+            padding: 0px;
+
+        }
+    }
+</style>
+<div id="ninja-slider">
+    <div class="slider-inner">
+        <ul>
+            <li ng-repeat="image in images">
+                <a class="ns-img" href="http://ktmsocialapi.somee.com/Image/User/Upload/{{image.url}}"></a>
+                <div ng-click="ShowFeed()" class="caption">{{image.shortTitle}}</div>
+            </li>
+           
+        </ul>
+        <div class="fs-icon" title="Expand/Close"></div>
+    </div>
+</div>
+<button ng-click="ShowFeed()" style="margin-top:10px;" class="btn btn-primary" type="button"><i class="fa fa-picture-o" aria-hidden="true"></i> Xem bài đăng</button>
+
+
+<script>
+    $(document).ready(function () {
+
+        setTimeout(function () {
+            
+            var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            if (width > 500) {
+                var nslider = new NinjaSlider(nsOptions);
+            }
+            else {
+                var nslider = new NinjaSlider(nsOptions1); //mobile
+            }
+        }, 500);
+        
+    });
+</script>

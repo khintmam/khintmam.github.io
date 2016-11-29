@@ -1,0 +1,10 @@
+﻿                <form name="formEdit" novalidate>
+                    <img width='25' height='25' ng-src='http://ktmsocialapi.somee.com/Image/User/Upload/{{info.image}}' />
+                    <a class='text-success' href='/User/TimeLine/{{info.username}}'>{{info.name}}</a>: <br><br>
+                    <textarea style="cursor: default" readonly name="content" placehover='Chỉnh sửa nội dung bình luận.' class="form-control"
+                              ng-model="info.content" required rows="4"></textarea>
+                    <div style="margin: 10px;"></div>
+                    <code>Bình luận lúc: {{info.date}} </code>
+                    <br>
+                    <code>Chỉnh sửa lần cuối lúc: {{info.edit_At}} </code>
+                </form>

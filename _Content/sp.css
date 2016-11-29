@@ -1,0 +1,40 @@
+﻿
+.padding {
+        padding: 0px 50px 0px 50px; 
+    }
+.content{
+    font-size: 12px;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    #container_ui {
+        padding: 0px;
+    }
+
+    .col-sm-8 {
+        padding: 0px;
+    }
+    .col-sm-7 {
+        padding: 0px;
+    }
+
+    .col-sm-4 {
+        padding: 0px;
+    }
+
+    .content {
+        font-size: 10px;
+    }
+
+    #lstFriend {
+        display: none;
+    }
+    .ngdialog.ngdialog-theme-default .ngdialog-content {
+ 
+      padding: 4px;
+    }
+    .padding {
+        padding: 7px;
+    }
+}

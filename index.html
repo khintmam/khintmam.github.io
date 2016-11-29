@@ -1,1 +1,162 @@
-Hello World
+﻿<html data-ng-app="AngularAuthApp">
+<head>
+
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+
+    <title>AngularJS Authentication</title>
+    <link href="/_Content/mylayout/css/styles.css" rel="stylesheet">
+    <link href="/_Content/mylayout/css/bootstrap.min.css" rel="stylesheet">
+    <link href="_Content/ng-dialog/css/ngDialog-theme-default.css" rel="stylesheet" />
+    <link href="_Content/ng-dialog/css/ngDialog-theme-flat.css" rel="stylesheet" />
+    <link href="_Content/ng-dialog/css/ngDialog.css" rel="stylesheet" />
+   
+   
+    <!--Load more-->
+    <!--<link href="_Content/more/css/component.css" rel="stylesheet" />
+    <link href="_Content/more/css/default.css" rel="stylesheet" />
+    <script src="_Content/more/js/modernizr.custom.js"></script>-->
+
+    <link rel="icon" href="/Content/favicon.ico" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="content/css/loading-bar.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="/_Content/sp.css" rel="stylesheet">
+
+    <!--Slide -->
+    <link href="_Content/slideninja/ninja-slider.css" rel="stylesheet" />
+    <script src="_Content/slideninja/ninja-slider.js"></script>
+
+    <link href="_Content/ng-dialog/css/sp.css" rel="stylesheet" />
+    
+
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/user">Hi {{authentication.userName}}</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/messenger">Messenger</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
+                    <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
+                    <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="jumbotron">
+        <div class="container">
+        </div>
+    </div>-->
+    <div style="margin:70px;"></div>
+    <div class="container">
+        <div class="padding">
+            <div data-ng-view="">
+            </div>
+        </div>
+    </div>
+    <hr />
+    <!--<footer class="footer-distributed">
+        <div class="footer-left">
+            <p class="footer-links">
+                <a href="/">KTMSocial</a>
+            </p>
+            <a href="/Album/History"><p class="footer-company-name">Hãy nhớ những gì mình đã có, đã cố gắng nhé! <i class="fa fa-heart" aria-hidden="true"></i></p></a>
+        </div>
+        <div class="footer-right">
+            <form method="get" action="/Feed/SearchFeed">
+                <input placeholder="Search nội dung ở đây cũng được mắm :p" name="keyword" />
+                <i class="fa fa-search"></i>
+            </form>
+        </div>
+    </footer>-->
+    
+   
+   <!--Modal for all-->
+
+    <div ng-include="'app/templates/modal-noti-1.html'"></div>
+    <div ng-include="'app/templates/modal-noti-2.html'"></div>
+
+    <script src="/_Content/mylayout/js/jquery-3.1.0.js"></script>
+    <script src="/_Content/mylayout/js/bootstrap.js"></script>
+    <script src="/_Content/mylayout/js/scripts.js"></script>
+    <script src="/_Content/loading/js/vendor/modernizr-2.6.2.min.js"></script>
+    <!-- 3rd party libraries -->
+    <script src="scripts/angular.min.js"></script>
+
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <script src="scripts/loading-bar/js/loading-bar.min.js"></script>
+    <script src="scripts/ng-file-upload.min.js"></script>
+    <script src="scripts/ng-file-upload-shim.min.js"></script>
+
+    <!-- Load app main script -->
+    <!-- SignalR -->
+    <script src="scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="http://ktmsocialapi.somee.com/signalr/hubs"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+    <script src="app/controllers/app.js"></script>
+    <script src="_Content/ng-dialog/js/ngDialog.min.js"></script>
+    <!-- Load services -->
+
+
+    <script src="app/services/userService.js"></script>
+    <script src="app/services/sharedPropService.js"></script>
+    <script src="app/services/authInterceptorService.js"></script>
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/ordersService.js"></script>
+    <script src="app/services/feedService.js"></script>
+    <script src="app/services/commentService.js"></script>
+    <script src="app/services/messengerService.js"></script>
+    <script src="app/services/imageService.js"></script>
+
+
+
+    <!-- Load controllers -->
+    <script src="app/controllers/indexController.js"></script>
+    <script src="app/controllers/detailFeedController.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/controllers/loginController.js"></script>
+    <script src="app/controllers/signupController.js"></script>
+    <script src="app/controllers/ordersController.js"></script>
+    <script src="app/controllers/viewCommentController.js"></script>
+    <script src="app/controllers/viewImageFeedController.js"></script>
+    <script src="app/controllers/messengerController.js"></script>
+    <script src="app/controllers/timeLineController.js"></script>
+    <script src="app/controllers/personalController.js"></script>
+    <script src="app/controllers/viewRecentImageController.js"></script
+
+    <!-- Directives -->
+    <script src="app/directives/comment-feed.js"></script>
+    <script src="app/directives/feed-item.js"></script>
+    <script src="app/directives/edit-comment.js"></script>
+    <script src="app/directives/chat-box.js"></script>
+    <script src="app/directives/list-chat.js"></script>
+    <script src="app/directives/add-feed.js"></script>
+    <script src="app/directives/infouser/basic-info.js"></script>
+    <script src="app/directives/recent-photo.js"></script>
+    <script src="app/directives/infouser/more-info.js"></script>
+    <script src="app/directives/change-avatar.js"></script>
+    <script src="app/directives/change-background.js"></script>
+    <script src="app/directives/infouser/edit-info.js"></script>
+    <script src="app/directives/name-info.js"></script>
+    <script src="app/sinalR.js"></script>
+
+   
+    
+   
+    <!--<script src="_Content/more/js/masonry.pkgd.min.js"></script>
+    <script src="_Content/more/js/imagesloaded.js"></script>
+    <script src="_Content/more/js/classie.js"></script>
+    <script src="_Content/more/js/AnimOnScroll.js"></script>-->
+   
+</body>
+</html>

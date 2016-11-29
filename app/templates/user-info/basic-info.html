@@ -1,0 +1,14 @@
+﻿<div class="panel panel-default">
+    <center>
+        <img ng-click="Show()" style="cursor: pointer;" id="avatar" ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{user.avatar.url}}" class="img-thumbnail" width="150" height="150">
+        <i ng-show="IsCurrUser()" ng-click="ChangeAvatar()" class="material-icons" style="font-size: 25px; cursor: pointer; color: #02a8f3;">border_color</i>
+    </center>
+    <div class="panel-body">
+        <p class="lead" id="info-name">{{user.name}}</p>
+        <a href="#">Theo dõi <span class="badge">{{user.follower}}</span></a><br>
+        <a href="#">Bài đăng <span class="badge">{{user.posts}}</span></a><br><br />
+        <p>Năm sinh: <span id="info-birthday">{{user.birthDate}}</span></p>
+        <p>Quê quán: <span id="info-placeborn">{{user.bornPlace}}</span></p>
+        <p>Giới tính: <span id="info-sex">{{user.sex}}</span></p>
+    </div>
+</div>

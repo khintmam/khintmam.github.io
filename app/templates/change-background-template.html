@@ -1,0 +1,16 @@
+﻿<center><img ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{user.bgUser.url}}" class="img-thumbnail" width="150" height="150"></center>
+<form name="frmChangeBackground" class="form-horizontal" role="form" novalidate style="padding: 10px;">
+    <h4>Chọn hình ảnh để cập nhật ảnh bìa...</h4>
+    <div class="form-group" style="padding:14px 14px 0px 14px;">
+        <textarea name="content" id="content" class="form-control" placeholder="Cập nhật status của bạn" rows="3" ng-model="content" required></textarea>
+        <br />
+        <figure>
+            <img ngf-thumbnail="file" style="margin: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)" width="60" height="60">
+        </figure>
+        <button class="btn btn-primary" ngf-select ng-model="file"
+                accept="image/*">
+            <i class="fa fa-picture-o" aria-hidden="true"></i> Chọn ảnh
+        </button>
+        <button ng-disabled="frmChangeBackground.content.$invalid || file == undefined" ng-click="Change(file)" class="btn btn-primary" type="button">Cập nhật</button>
+    </div>
+</form>

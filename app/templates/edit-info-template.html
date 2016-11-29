@@ -1,0 +1,27 @@
+﻿<h4>Chỉnh sửa thông tin cá nhân</h4>
+<form style="margin: 10px;" name="frmEditInfo">
+    <div class="form-group">
+        <label for="files">Chỉnh sửa tên</label><label ng-show="info.name==undefined" style="color:red;">(*) Tên không được để trống</label>
+        <input class="form-control" type="text" name="name" ng-model="info.name" required/>
+    </div>
+    <div class="form-group">
+        <label for="birthday">Ngày sinh</label><label ng-show="frmEditInfo.birthDate.$error.required" style="color:red;">(*) Ngày sinh bắt buộc có</label>
+        <input type="date" id="exampleInput" name="birthDate" ng-model="birthDate"
+               placeholder="yyyy-MM-dd" required class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="sex">Giới tính</label>
+        <span>Nam</span> <input type="radio" name="sex" value="Nam" ng-model="info.sex"/> <span>Nữ</span> <input type="radio" name="sex" value="Nữ" ng-model="info.sex" />
+    </div>
+    <div class="form-group">
+        <label for="placeborn">Quê quán</label>
+        <label ng-show="frmEditInfo.placeborn.$error.required" style="color:red;">(*) Nhập nơi sinh luôn nhé</label>
+        <input class="form-control" type="text" name="placeborn" ng-model="info.bornPlace" required/>
+    </div>
+    <div class="form-group">
+        <label for="description">Miêu tả bản thân & sở thích</label>
+        <br />
+        <textarea rows="3" class="form-control" ng-model="info.description"></textarea>
+    </div>
+    <button ng-disabled="frmEditInfo.$invalid" class="form-control" ng-click="UpdateInfo()">Cập nhật thông tin</button>
+</form>
