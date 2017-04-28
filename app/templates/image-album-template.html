@@ -1,0 +1,18 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading"><a ng-show="iscuruser==true" ng-click="AddAlbum(album)" href="" class="pull-right">Thêm ảnh album này</a><a>Ảnh album {{album.nameAlbum}}</a></div>
+    <div class="panel-body">
+        <h4 class="text-danger" ng-show="album.images.length == 0">Chưa có hình ảnh nào</h4>
+        <ul class="grid effect-4" id="grid">
+            
+            <li ng-repeat="img in album.images">
+                <figure>
+                    <img ng-click="ShowImage($index)" style="margin: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); cursor:ne-resize" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{img.url}}">
+                    <a href="" ng-click="ShowFeed($index)"><figcaption style="font-size: 11;">{{img.shortTitle}}</figcaption></a>
+                </figure>
+            </li>
+
+        </ul>
+        <br />
+        <div class="panel-heading"><a ng-click="EditNameAlbum()" ng-show="iscuruser==true&&album.nameAlbum!='Avatar'&&album.nameAlbum!='Upload'&&album.nameAlbum!='Ảnh bìa'" href="">Sửa tên album</a><button ng-disabled="album.images_length==album.images.length" ng-click="GetMoreImage()" class="pull-right btn btn-info">Xem thêm ảnh({{album.images_length - album.images.length}})</button></div>
+    </div>
+</div>

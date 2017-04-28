@@ -4,6 +4,7 @@
     <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
 
     <title>AngularJS Authentication</title>
+    
     <link href="/newcontent/mylayout/css/styles.css" rel="stylesheet">
     <link href="/newcontent/mylayout/css/bootstrap.min.css" rel="stylesheet">
     <link href="newcontent/ng-dialog/css/ngDialog-theme-default.css" rel="stylesheet" />
@@ -11,10 +12,7 @@
     <link href="newcontent/ng-dialog/css/ngDialog.css" rel="stylesheet" />
    
    
-    <!--Load more-->
-    <!--<link href="newcontent/more/css/component.css" rel="stylesheet" />
-    <link href="newcontent/more/css/default.css" rel="stylesheet" />
-    <script src="newcontent/more/js/modernizr.custom.js"></script>-->
+   
 
     <link rel="icon" href="/Content/favicon.ico" />
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -22,40 +20,48 @@
     <link href="content/css/loading-bar.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link href="/newcontent/sp.css" rel="stylesheet">
-
-    <!--Slide -->
-    <link href="newcontent/slideninja/ninja-slider.css" rel="stylesheet" />
-    <script src="newcontent/slideninja/ninja-slider.js"></script>
-
     <link href="newcontent/ng-dialog/css/sp.css" rel="stylesheet" />
     
-
+    <link href="/newcontent/mylayout/css/message/conversation.css" rel="stylesheet" />
+ <!--Load more-->
+    <link href="newcontent/more/css/component.css" rel="stylesheet" />
+    <link href="newcontent/more/css/default.css" rel="stylesheet" />
+   
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
-        <div class="container">
-            <div class="navbar-header">
-                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
-                    <span class="glyphicon glyphicon-chevron-down"></span>
+<body data-ng-controller="indexController">
+    
+    <nav class=" navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header"> 
+                <a href="#/home"><img style="width: 45px; height:45px;" src="newcontent/icon.jpg" class="icon-bar" /></a><a class="navbar-brand" href="#/home">KTMSocial</a>
+                <a ng-click="OpenNoti()" data-ng-hide="!authentication.isAuth" style="color:white; font-size: 20px; margin-left: 10px;" id="ShowNotification" href="" ><i style="font-size:28px;" class="fa fa-globe" aria-hidden="true"></i><span id="StatusNewQty" class="badge">{{noti_length}}</span></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#/">Home</a>
             </div>
-            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+            <div class="collapse navbar-collapse" id="myNavbar" >
+                <ul class="nav navbar-nav" data-ng-show="authentication.isAuth" >
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input ng-model="keyword" name="keyword" type="text" class="form-control" placeholder="Tìm kiếm bạn bè" >
+                        </div>
+                        <button ng-click="Search(keyword)"  data-ng-hide="!authentication.isAuth" style="padding: 0px 10px 0px 10px;" type="submit" class="btn Sbtn-default"><i class="material-icons">search</i></button>
+                    </form>
+                    <li data-ng-hide="!authentication.isAuth"><a id="Personal" href="#user"><i class="fa fa-user" aria-hidden="true"></i> {{authentication.name}} <span id="new-msg" title="" class="badge"></span></a></li>
+                    <li  data-ng-hide="!authentication.isAuth"><a id="Messenger" href="#messenger"><i class="fa fa-envelope" aria-hidden="true"></i> Tin nhắn <span id="new-msg" title="" class="badge"></span></a></li>
+                    <li  data-ng-hide="!authentication.isAuth"><a href="#album"><i class="fa fa-picture-o" aria-hidden="true"></i> Ảnh của tuôi</a></li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li data-ng-hide="!authentication.isAuth"><a href="#/user">Hi {{authentication.userName}}</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="#/messenger">Messenger</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
-                    <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
-                    <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
+                    <li  data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Đăng xuất</a></li>
+                    <li data-ng-hide="authentication.isAuth"><a href="#/register"><i class="fa fa-key" aria-hidden="true"></i> Đăng ký</a></li>
+                    <li  data-ng-hide="authentication.isAuth"><a href="#/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a></li>
                 </ul>
             </div>
         </div>
-    </div>
-    <!--<div class="jumbotron">
-        <div class="container">
-        </div>
-    </div>-->
+    </nav>
     <div style="margin:70px;"></div>
     <div class="container">
         <div class="padding">
@@ -78,33 +84,39 @@
             </form>
         </div>
     </footer>-->
-    
-   
-   <!--Modal for all-->
+    <!--Modal for all-->
 
-    <div ng-include="'app/templates/modal-noti-1.html'"></div>
-    <div ng-include="'app/templates/modal-noti-2.html'"></div>
+    <modal-noti></modal-noti>
 
     <script src="/newcontent/mylayout/js/jquery-3.1.0.js"></script>
+    <script src="scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="newcontent/more/js/modernizr.custom.js"></script>
+    <script src="https://ktmsocial.somee.com/signalr/hubs"></script>
+    <script src="app/sinalR.js"></script>
+
     <script src="/newcontent/mylayout/js/bootstrap.js"></script>
     <script src="/newcontent/mylayout/js/scripts.js"></script>
     <script src="/newcontent/loading/js/vendor/modernizr-2.6.2.min.js"></script>
     <!-- 3rd party libraries -->
     <script src="scripts/angular.min.js"></script>
-
     <script src="scripts/angular-route.min.js"></script>
     <script src="scripts/angular-local-storage.min.js"></script>
     <script src="scripts/loading-bar/js/loading-bar.min.js"></script>
     <script src="scripts/ng-file-upload.min.js"></script>
     <script src="scripts/ng-file-upload-shim.min.js"></script>
-
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-touch.min.js"></script>
     <!-- Load app main script -->
     <!-- SignalR -->
-    <script src="scripts/jquery.signalR-2.2.1.min.js"></script>
-    <script src="http://ktmsocialapi.somee.com/signalr/hubs"></script>
+   
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script src="app/controllers/app.js"></script>
     <script src="newcontent/ng-dialog/js/ngDialog.min.js"></script>
+    <!-- Load filters -->
+
+
+    <script src="app/filters/shortname.js"></script>
+
+
     <!-- Load services -->
 
 
@@ -117,6 +129,8 @@
     <script src="app/services/commentService.js"></script>
     <script src="app/services/messengerService.js"></script>
     <script src="app/services/imageService.js"></script>
+    <script src="app/services/backendHubProxy.js"></script>
+    <script src="app/services/notiService.js"></script>
 
 
 
@@ -130,10 +144,14 @@
     <script src="app/controllers/viewCommentController.js"></script>
     <script src="app/controllers/viewImageFeedController.js"></script>
     <script src="app/controllers/messengerController.js"></script>
-    <script src="app/controllers/timeLineController.js"></script>
+    <script src="app/controllers/TimeLineController.js"></script>
     <script src="app/controllers/personalController.js"></script>
-    <script src="app/controllers/viewRecentImageController.js"></script
-
+    <script src="app/controllers/viewRecentImageController.js"></script>
+    <script src="app/controllers/ViewImageController.js"></script>
+    <script src="app/controllers/myAlbumController.js"></script>
+    <script src="app/controllers/ViewAlbumController.js"></script>
+    <script src="app/controllers/messengerPersonController.js"></script>
+    <script src="app/controllers/FindFriendController.js"></script>
     <!-- Directives -->
     <script src="app/directives/comment-feed.js"></script>
     <script src="app/directives/feed-item.js"></script>
@@ -148,15 +166,38 @@
     <script src="app/directives/change-background.js"></script>
     <script src="app/directives/infouser/edit-info.js"></script>
     <script src="app/directives/name-info.js"></script>
-    <script src="app/sinalR.js"></script>
+    <script src="app/directives/list-album.js"></script>
+    <script src="app/directives/image-album.js"></script>
+    <script src="app/directives/edit-name-album.js"></script>
+    <script src="app/directives/create-new-album.js"></script>
+    <script src="app/directives/modal-notification.js"></script>
+    <script src="app/directives/noti.js"></script>
+    <script src="app/directives/list-friend.js"></script>
+    <script src="app/directives/search-friend.js"></script>
+    <script src="app/directives/friend-found.js"></script>
+    <script src="app/directives/pending-request.js"></script>
 
-   
-    
-   
-    <!--<script src="newcontent/more/js/masonry.pkgd.min.js"></script>
+
+
+
+    <script src="newcontent/more/js/masonry.pkgd.min.js"></script>
     <script src="newcontent/more/js/imagesloaded.js"></script>
     <script src="newcontent/more/js/classie.js"></script>
-    <script src="newcontent/more/js/AnimOnScroll.js"></script>-->
-   
+    <script src="newcontent/more/js/AnimOnScroll.js"></script>
+    <script src="app/controllers/addImageAlbumController.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.nav a').on('click', function () {
+                if (screen.width <= 480)
+                {
+                    $('.btn-navbar').click(); //bootstrap 2.x
+                    $('.navbar-toggle').click() //bootstrap 3.x by Richard
+                }
+                
+            });
+        });
+    </script>
+
+
 </body>
 </html>

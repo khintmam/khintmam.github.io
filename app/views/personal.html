@@ -3,11 +3,12 @@
     <div class="col-sm-4">
         <basic-info user ="user"></basic-info>
         <recent-photo user="user"></recent-photo>
+        <list-friend username ="user.username"></list-friend>
         <more-info user="user"></more-info>
     </div>
     <div class="col-sm-8">
         <div class="panel panel-default">
-            <img ng-click="ShowBGImage()" style="cursor: pointer;" class="img-thumbnail" id="ImageFeed" ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{user.bgUser.url}}" alt="" />
+            <img ng-click="ShowBGImage()" style="cursor: pointer;" class="img-thumbnail" id="ImageFeed" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{user.bgUser.url}}" alt="" />
             <div style="margin: 5px; cursor: pointer">
                 <a ng-click="ChangeBG()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Thay ảnh bìa</a>
                 <a ng-click="ShowPostFeed()"><i class="fa fa-tags" aria-hidden="true"></i> Đăng bài</a>

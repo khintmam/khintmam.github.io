@@ -1,8 +1,8 @@
 ﻿'use strict';
-app.factory('authService', ['$http', '$q', 'localStorageService', '$location', 'userService'
-    , function ($http, $q, localStorageService, $location, userService) {
+app.factory('authService', ['$http', '$q', 'localStorageService', '$location', 'userService', 'notiService'
+    , function ($http, $q, localStorageService, $location, userService, notiService) {
  
-    var serviceBase = 'http://ktmsocialapi.somee.com/';
+    var serviceBase = 'https://ktmsocial.somee.com/';
     var authServiceFactory = {};
  
     var _authentication = {
@@ -47,9 +47,23 @@ app.factory('authService', ['$http', '$q', 'localStorageService', '$location', '
                 _authentication.avatar = results.data.avatar;
                 _authentication.name = results.data.name;
             }, function (err) {
-                alert('error');
+                console.log('error get info user');
             });
-           
+
+            notiService.getNoti(_authentication.userName).then(function (results) {
+                if (results.data == -2) alert(-2);
+                var scope = angular.element('#modalNoti').scope();
+                scope.$applyAsync(function () {
+                    scope.noties = results.data.lstNoti;
+                    scope.length = results.data.length;
+                    scope.noti_length = results.data.length_new;
+                    console.log(results.data);
+                });
+            },
+            function (error) {
+                console.log('error get noti user');
+                console.log(error);
+            });
             deferred.resolve(response);
  
         }).error(function (err, status) {
@@ -64,7 +78,13 @@ app.factory('authService', ['$http', '$q', 'localStorageService', '$location', '
     var _logOut = function () {
  
         localStorageService.remove('authorizationData');
-        myHub.invoke('logOut', _authentication.userName);
+        var userLogout = _authentication.userName;
+        var interval = setInterval(function () {
+            if (isHubStart == true) {
+                myHub.invoke('logOut', userLogout);
+                clearInterval(interval);
+            }
+        }, 1000);
         _authentication.isAuth = false;
         _authentication.userName = "";
        

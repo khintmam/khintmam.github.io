@@ -1,0 +1,13 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading"><a href="" class="pull-right">Chọn để xem</a> <h4>Album của tôi</h4></div>
+    <div class="panel-body">
+        <div style=" display: flex; flex-wrap: wrap;">
+            <figure ng-repeat="album in albums">
+                <img ng-click="changeActive($index)" style="cursor:pointer; margin: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{album.images[0].url}}" class="album-item">
+                <a href="" ng-click="changeActive($index)"><figcaption style="font-size: 9px;">{{album.nameAlbum}} ({{album.images_length}})</figcaption></a>
+            </figure>
+        </div>
+        <br />
+        <div ng-show="iscuruser == true" class="panel-heading"><a ng-click="AddNewAlbum()" href="" class="pull-right">Thêm mới album</a></div>
+    </div>
+</div>

@@ -1,8 +1,9 @@
-﻿<link href="../../content/css/messenger.css" rel="stylesheet" />
+﻿
 
 <div class="row" id="MileStoneChat">
     <div class="col-sm-4" style="box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        <list-chat conversation="conversation"></list-chat>
+        <list-chat conversation="conversation" ng-show="showListChat==true"></list-chat>
+        <center><button class="btn btn-info" ng-click="setListChat()"><i style="font-size: 20px; padding: 5px;" class="fa fa-arrows-v" aria-hidden="true"></i></button></center>
     </div>
     <div class="col-sm-1"></div>
     <div class="col-sm-7" style="box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">

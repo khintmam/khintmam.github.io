@@ -1,7 +1,7 @@
 ﻿'use strict';
 app.factory('ordersService', ['$http', function ($http) {
 
-    var serviceBase = 'http://ktmsocialapi.somee.com/';
+    var serviceBase = 'https://ktmsocial.somee.com/';
     var ordersServiceFactory = {};
 
     var _getOrders = function () {

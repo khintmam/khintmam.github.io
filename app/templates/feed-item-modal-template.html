@@ -1,0 +1,48 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);">
+        <a href="/User/TimeLine/{{feed.username}}">
+            <img style="width:75px;height:75px;" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{feed.imageUser}}" class="img-circle pull-right">
+        </a>
+        <h4 style="cursor: pointer" class="text-primary">{{feed.title}}</h4>
+    </div>
+    <div class="panel-body">
+
+         <name-info username="feed.username" name="feed.name"></name-info> - <code style="word-break: keep-all; white-space: normal;">Lúc {{feed.create_At}}</code>
+        <hr />
+
+        <div class="clearfix"></div>
+
+
+        <p> {{feed.content}}</p>
+
+        <hr>
+
+        <img ng-click="ViewFeed()" ng-if="(feed.image_Qty == 1 || feed.image_Qty == 0) && feed.image != null" style="cursor: pointer; max-height: 400px;" onclick="" class="img-thumbnail" id="ImageFeed" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{feed.image}}" />
+        <img ng-click="ViewFeed()" ng-if="feed.image_Qty > 1" style="cursor: pointer;" onclick="" class="img-thumbnail" id="ImageFeed" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{feed.image}}" />
+        <a ng-click="ViewImageByFeed()" ng-if="feed.image_Qty > 1"><h5><i style='font-size: 17px; ' class='material-icons'>burst_mode</i>Xem tất cả ảnh của bài đăng </h5></a>
+        <br />
+
+        <div style="margin: 10px 10px 10px 0px;" class="btn-group commentFirst-@feed.ID">
+            <button ng-style="{'visibility': isHaveOldComment() ?'visible':'hidden'}" ng-click="isloadmore==false && GetMoreComment()" type="button" class="btn btn-default"><span ng-show="isloadmore == false">Xem thêm</span><i ng-show="isloadmore == true" class='fa fa-circle-o-notch fa-spin' style='font-size:20px; color: #001f3f'></i></button>
+            <button ng-style="{'visibility': isHaveOldComment() ?'visible':'hidden'}" ng-click="isloadall==false && GetAllComment()" type="button" class="btn btn-default"><span ng-show="isloadall == false">Xem hết</span><i ng-show="isloadall == true" class='fa fa-circle-o-notch fa-spin' style='font-size:20px; color: #001f3f'></i></button>
+            <button ng-style="{'visibility': CanHideComment() ? 'visible':'hidden'}" ng-click="HideComment()" type="button" class="btn btn-default">Ân bớt</button>
+         
+        </div>
+
+        <div ng-repeat="comment in feed.comments">
+            <comment-feed info="comment"></comment-feed>
+        </div>
+        <form>
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button style="display: none;"></button>
+                    <button ng-click="LikeFeed()" class="btn btn-default"><i class="fa fa-heart" style="color:red; font-size: 15px;"></i><span class="like-feed-@feed.ID badge">{{feed.like}}</span></button>
+                    <button ng-click="SadFeed()" class="btn btn-default"><i class="fa fa-frown-o" style="color:red; font-size: 15px;"></i><span class="sad-feed-@feed.ID badge">{{feed.sad}}</span></button>
+                    <button ng-click="SendComment()" class="btn btn-default"><i class="fa fa-paper-plane" style="color:blueviolet;font-size:18px;" aria-hidden="true"></i></button>
+                </div>
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="newMessage" type="text" name="content" class="form-control" placeholder="Thêm bình luận" ng-enter="SendComment()">
+                
+            </div>
+        </form>
+    </div>
+</div>

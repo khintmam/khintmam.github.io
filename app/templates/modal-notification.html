@@ -1,0 +1,20 @@
+﻿
+            
+<div class="modal fade" id="modalNoti" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content" style="font-style: italic; border-radius: 5px; padding: 5px;">
+            <div class="modal-body" style="margin: 5px; background-color: rgba(0, 0, 0, 0);">
+                <p id="Notification">
+                    <noti ng-repeat="noti in noties" data="noti"></noti>
+                </p>
+            </div>
+            <div class="modal-footer" style="border-top: none;padding: 5px; margin-top: 0px; background-color: rgba(0, 0, 0, 0);">
+                <p ng-show="noties.length == 0" style="font-size: 13px;" class="li-noti-noti">Hong có thông báo nào nha mắm :p</p>
+                <button id="btnClearAllNoti" ng-click="Clear()" ng-disabled="noties.length == 0" type="button" class="btn btn-info">Xóa <i style="color: #001f3f;" class="fa fa-times" aria-hidden="true"></i></button>
+                <button id="btnHideNotification" ng-click="Hide()" ng-disabled="noties.length <= 4" type="button" class="btn btn-info"><i style="color: #001f3f; " class="fa fa-arrow-up" aria-hidden="true"></i></button>
+                <button id="btnMoreNotification" ng-click="IsLoadMore==false&&GetMore()" ng-disabled="noties.length >= length" type="button" class="btn btn-info"><span ng-show="IsLoadMore==false">Xem thêm <i style="color: #001f3f;" class=" fa fa-arrow-down" aria-hidden="true"></i></span><i ng-show="IsLoadMore==true" class='fa fa-circle-o-notch fa-spin' style='font-size:24px; color: #001f3f'></i></button>
+                <button data-dismiss="modal" type="button" class="btn btn-info"><i style="color: #001f3f;" class="fa fa-times" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+</div>

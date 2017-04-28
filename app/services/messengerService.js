@@ -1,7 +1,7 @@
 ﻿'use strict';
 app.factory('messengerService', ['$http', function ($http) {
 
-    var serviceBase = 'http://ktmsocialapi.somee.com/';
+    var serviceBase = 'https://ktmsocial.somee.com/';
     var messengerFactory = {};
 
     var _getConversation = function (username) {

@@ -7,8 +7,8 @@
         templateUrl: '/app/templates/comment-feed-template.html',
         controller: 'CommentFeedController'
     };
-}).controller("CommentFeedController", ['$scope', 'authService', 'sharedPropService',
-    function ($scope, authService, sharedPropService) {
+}).controller("CommentFeedController", ['$scope', 'authService', 'sharedPropService', 'ngDialog',
+    function ($scope, authService, sharedPropService, ngDialog) {
     $scope.ismouseover = 0;
     //Check xem comment có được edit không
     $scope.isYourComment = function (cmtUsername) {
@@ -30,6 +30,8 @@
             controller: 'EditCommentController'
         });
     };
+
+
    
   
   

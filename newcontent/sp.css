@@ -1,4 +1,4 @@
-﻿
+
 .padding {
         padding: 0px 50px 0px 50px; 
     }
@@ -18,10 +18,16 @@
     .col-sm-7 {
         padding: 0px;
     }
+    .col-sm-5 {
+         padding: 0px;
+    }
 
     .col-sm-4 {
         padding: 0px;
     }
+    .col-sm-6 {
+    padding: 0px;
+}
 
     .content {
         font-size: 10px;

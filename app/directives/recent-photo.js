@@ -8,8 +8,8 @@ app.directive('recentPhoto', function () {
         },
         controller: 'RecentPhotoTemplateController'
     };
-}).controller('RecentPhotoTemplateController', ['$scope', 'imageService', 'authService', 'ngDialog',
-    function ($scope, imageService, authService, ngDialog) {
+}).controller('RecentPhotoTemplateController', ['$scope', 'imageService', 'authService', 'ngDialog', 'feedService',
+    function ($scope, imageService, authService, ngDialog, feedService) {
     $scope.auth = authService.authentication;
     var interval = setInterval(function () {
         if ($scope.user.username == undefined) return;
@@ -21,7 +21,6 @@ app.directive('recentPhoto', function () {
                 if (results.data == -2) alert(-2);
                 else {
                     $scope.listRecent = results.data;
-                    console.log(results.data);
                    
                 }
             }, function (err) {
@@ -29,26 +28,28 @@ app.directive('recentPhoto', function () {
             });
         }
     }, 100);
-    $scope.Show = function (index) {
-        //Check Image Has Feed or Not
-        var image = $scope.listRecent[index];
-        if (image.feed == null) {
-            //Show dialog image
-            $scope.img = image;
-            ngDialog.open({
-                template: '/app/templates/dialog-view-image.html',
-                scope: $scope
-            });
-        }
-        else { //Show dialog feed
-            $scope.feed = image.feed;
+    $scope.ShowFeed = function (img) {
+        feedService.getFeedByID($scope.list[img].feed).then(function (results) {
+            $scope.feed = results.data;
             ngDialog.open({
                 template: '/app/templates/feed-item-template.html',
                 controller: 'FeedController',
                 scope: $scope
             });
+        }, function (err) {
+            alert(err);
+            console.log(err);
+        });
 
-        }
     };
+    $scope.ShowImage = function(index){
+            $scope.img = index;
+            $scope.list = $scope.listRecent;
+            ngDialog.open({
+                template: '/app/templates/dialog-view-image.html',
+                controller: 'ViewImageController',
+                 scope: $scope
+            });
+    }
    
 }]);

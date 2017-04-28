@@ -10,7 +10,7 @@ app.directive('changeAvatarBox', function () {
         $scope.Change = function (files) {
             $scope.file = files;
                 files.upload = Upload.upload({
-                    url: 'http://ktmsocialapi.somee.com/api/feed/changeavatar?username=' + $scope.auth.userName + '&content=' + $scope.content,
+                    url: 'https://ktmsocial.somee.com/api/feed/changeavatar?username=' + $scope.auth.userName + '&content=' + $scope.content,
                     data: { file: files }
                 });
                 files.upload.then(function (response) {

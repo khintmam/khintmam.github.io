@@ -6,19 +6,20 @@ app.controller('homeController', ['$scope', 'feedService', 'authService', functi
     $scope.listFeed = [];
     $scope.authentication = authService.authentication;
     
-    feedService.getFeed().then(function (rs) {
+    feedService.getFeed($scope.authentication.userName).then(function (rs) {
         $scope.listFeed = rs.data;
     }, function () {
 
     });
     $scope.AddNewFeed = function (feed) {
         $scope.listFeed.shift(feed);
+        
     };
     $scope.GetMoreFeed = function () {
         $scope.isloadfeed = true;
         var lastid = $scope.listFeed[$scope.listFeed.length - 1].id;
         var type = 1;
-        var username = '';
+        var username = $scope.authentication.userName;
 
         feedService.getMoreFeed(lastid, type, username).then(function (results) {
             if (results.data == -2) alert(-2);
@@ -26,7 +27,6 @@ app.controller('homeController', ['$scope', 'feedService', 'authService', functi
             else
             {
                 $scope.listFeed.push.apply($scope.listFeed, results.data);
-                
             }
             $scope.isloadfeed = false;
         });

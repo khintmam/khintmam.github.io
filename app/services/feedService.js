@@ -1,24 +1,22 @@
 ﻿'use strict';
 app.factory('feedService', ['$http', function ($http) {
 
-    var serviceBase = 'http://ktmsocialapi.somee.com/';
+    var serviceBase = 'https://ktmsocial.somee.com/';
     var feedServiceFactory = {};
 
-    var _getFeed = function () {
+    var _getFeed = function (username) {
 
-        return $http.get(serviceBase + 'api/home/getfeed').then(function (results) {
+        return $http.get(serviceBase + 'api/home/getfeed?username=' + username).then(function (results) {
             return results;
         });
     };
-   
-
-    var _likeFeed = function (feedid) {
-        return $http.post(serviceBase + 'api/feed/likefeed?feedid=' + feedid).then(function (results) {
+    var _likeFeed = function (feedid, username) {
+        return $http.post(serviceBase + 'api/feed/likefeed?feedid=' + feedid + '&username=' + username).then(function (results) {
             return results;
         });
     };
-    var _sadFeed = function (feedid) {
-        return $http.post(serviceBase + 'api/feed/sadfeed?feedid=' + feedid).then(function (results) {
+    var _sadFeed = function (feedid, username) {
+        return $http.post(serviceBase + 'api/feed/sadfeed?feedid=' + feedid + '&username=' + username).then(function (results) {
             return results;
         });
     };

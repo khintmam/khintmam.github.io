@@ -1,14 +1,12 @@
-﻿<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="/_Content/mylayout/css/message/conversation.css" rel="stylesheet" />
-<div class="box box-primary direct-chat direct-chat-primary chat-conversation-{{chat.conversation.conversationID}}">
+﻿<div class="box box-primary direct-chat direct-chat-primary chat-conversation-{{chat.conversation.conversationID}}">
     <div class="box-header with-border">
-        <a style="font-weight: bold;" class="text-primary" href="/User/TimeLine/{{chat.name}}"<h3 class="box-title">{{chat.name}}</h3></a>
+        <a style="font-weight: bold;" class="text-primary" href="#/user/{{chat.username}}/"<h3 class="box-title">{{chat.name}}</h3></a> <a href="#messenger/{{chat.username}}/"><i style="font-size: 22px; color: #008cba;cursor: pointer" class="fa fa-location-arrow" aria-hidden="true"></i></a>
     </div>
     <div class="box-header with-border">
-        <div class="box-tools pull-right">
-            <span style="cursor: pointer" ng-click="beingLoadAll == 0 && ViewAll()" data-toggle="tooltip" title="" class="badge bg-light-blue" data-original-title=""><span ng-show="beingLoadAll == 0">Xem hết</span><i ng-show="beingLoadAll == 1" class='fa fa-circle-o-notch fa-spin' style='font-size:20px;'></i></span>
-            <span style="cursor: pointer" ng-click="beingLoadMore == 0 && ViewMore()" data-toggle="tooltip" title="" class="badge bg-light-blue" data-original-title=""><span ng-show="beingLoadMore == 0">Xem thêm</span><i ng-show="beingLoadMore == 1" class='fa fa-circle-o-notch fa-spin' style='font-size:20px;'></i></span>
-            <span style="cursor: pointer" ng-click="HideLess()" data-toggle="tooltip" title="" class="badge bg-light-blue" data-original-title="">Ẩn bớt</span>
+        <div class="pull-right">
+            <button ng-disabled="!(chat.conversation.messages.length < chat.conversation.length)" ng-click="beingLoadAll == 0 && ViewAll()" class="btn btn-xs btn-info"><span ng-show="beingLoadAll == 0">Xem hết<span>({{chat.conversation.length - chat.conversation.messages.length}})</span></span><i ng-show="beingLoadAll == 1" class='fa fa-circle-o-notch fa-spin' style='font-size:20px;'></i></button>
+            <button ng-disabled="!(chat.conversation.messages.length < chat.conversation.length)" ng-click="beingLoadMore == 0 && ViewMore()" class="btn btn-xs btn-info"><span ng-show="beingLoadMore == 0">Xem thêm</span><i ng-show="beingLoadMore == 1" class='fa fa-circle-o-notch fa-spin' style='font-size:20px;'></i></button>
+            <button ng-disabled="!(chat.conversation.messages.length > 5)" ng-click="HideLess()" class="btn btn-xs btn-info"><span>Ẩn bớt</span></button>
         </div>
     </div>
     <!-- /.box-header -->
@@ -19,11 +17,11 @@
 
                 <div ng-show="message.fromUsername == authentication.userName" class="direct-chat-msg">
                     <div class="direct-chat-info clearfix">
-                        <a href="/User/TimeLine/{{message.fromUsername}}"><span class="direct-chat-name pull-left">{{authentication.name}}</span></a>
+                        <a href="#/user/"><span class="direct-chat-name pull-left">{{authentication.name}}</span></a>
                         <code style="color: #6f5499; " class="direct-chat-timestamp pull-right">{{message.timeSpan}}</code>
                     </div>
                     <!-- /.direct-chat-info -->
-                    <a href="/User/TimeLine/{{message.fromUsername}}"><img class="direct-chat-img" ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{authentication.avatar}}" alt="@Me.Name"></a><!-- /.direct-chat-img -->
+                    <a href="#/user/"><img class="direct-chat-img" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{authentication.avatar}}" alt="@Me.Name"></a><!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
                         <span style="word-break: keep-all; white-space: normal;">{{message.message1}}</span>
                     </div>
@@ -32,12 +30,12 @@
 
                 <div ng-show="message.fromUsername != authentication.userName" class="direct-chat-msg right">
                     <div class="direct-chat-info clearfix">
-                        <a href="/User/TimeLine/"><span class="direct-chat-name pull-right">{{chat.name}}</span></a>
+                        <a href="#/user/{{message.fromUsername}}"><span class="direct-chat-name pull-right">{{chat.name}}</span></a>
 
                         <code style="color: #6f5499; " class="direct-chat-timestamp pull-left">{{message.timeSpan}}</code>
                     </div>
                     <!-- /.direct-chat-info -->
-                    <a href="/User/TimeLine/@m.FromUsername"><img class="direct-chat-img" ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{chat.avatar}}" alt="@Me.Name"></a>
+                    <a href="#/user/{{message.fromUsername}}"><img class="direct-chat-img" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{chat.avatar}}" alt="@Me.Name"></a>
                     <!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
                         <span style="word-break: keep-all; white-space: normal;">{{message.message1}}</span>
@@ -60,7 +58,7 @@
                     <code style="color: #6f5499; " class="direct-chat-timestamp pull-right"><i class="fa fa-pencil" aria-hidden="true"></i></code>
                 </div>
                 <!-- /.direct-chat-info -->
-                <a href="/User/TimeLine/{{message.fromUsername}}"><img class="direct-chat-img" ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{authentication.avatar}}" alt="@Me.Name"></a><!-- /.direct-chat-img -->
+                <a href="/User/TimeLine/{{message.fromUsername}}"><img class="direct-chat-img" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{authentication.avatar}}" alt="@Me.Name"></a><!-- /.direct-chat-img -->
                 <div class="direct-chat-text">
                     <span style="word-break: keep-all; white-space: normal;">{{newMessage}}</span>
                 </div>
@@ -69,7 +67,7 @@
             <form name="frmSendMsg" novalidate>
                 <div style="margin: 10px;" ng-show="isWriting == 1" class="text-primary"><i class="fa fa-spinner fa-spin fa-fw margin-bottom"></i><span style="font-size:12px;">{{chat.shortname}} đang nhập...</span></div>
                 <div class="input-group">
-                    <input ng-model="newMessage" id="messagecontent" type="text" name="newMessage" placeholder="Nội dung tin nhắn nha mắm" class="form-control" required>
+                    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="newMessage" id="messagecontent" type="text" name="newMessage" placeholder="Nội dung tin nhắn nha mắm" class="form-control" required>
                     <span class="input-group-btn">
                         <button ng-click="!frmSendMsg.newMessage.$error.required && SendMessage()" id="sendmessage" type="submit" class="btn btn-primary btn-flat"><i class="fa fa-paper-plane" aria-hidden="true"></i> Gửi</button>
                     </span>

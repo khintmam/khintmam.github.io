@@ -1,14 +1,11 @@
 ﻿'use strict';
 app.factory('commentService', ['$http', function ($http) {
 
-    var serviceBase = 'http://ktmsocialapi.somee.com/';
+    var serviceBase = 'https://ktmsocial.somee.com/';
     var CommentServiceFactory = {};
 
     var _addComment = function (feedid, content, username) {
 
-        //return $http.get(serviceBase + 'api/comment/addcomment?content=' + content + '&feedid=' + feedid + '&username=' + username).then(function (results) {
-        //    return results;
-        //});
 
         return $http({
             method: 'post',

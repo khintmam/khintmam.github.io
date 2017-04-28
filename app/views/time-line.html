@@ -3,11 +3,12 @@
     <div class="col-sm-4">
         <basic-info user ="user"></basic-info>
         <recent-photo user="user"></recent-photo>
+        <list-friend username="user.username"></list-friend>
         <more-info user="user"></more-info>
     </div>
     <div class="col-sm-8">
         <div class="panel panel-default">
-            <img ng-click="ShowBGImage()" style="cursor: pointer;" class="img-thumbnail" id="ImageFeed" ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{user.bgUser.url}}" alt="" />
+            <img ng-click="ShowBGImage()" style="cursor: pointer;" class="img-thumbnail" id="ImageFeed" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{user.bgUser.url}}" alt="" />
             <div style="margin: 5px; cursor: pointer">
                 <a href="#/messenger"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Gửi tin nhắn</a>
                 
@@ -21,5 +22,6 @@
             <button ng-click="isloadfeed==false && GetMoreFeed()" class="form-control btn btn-info" id="btnMoreFeed"><span ng-show="isloadfeed == false">Xem thêm...</span><i ng-show="isloadfeed == true" class='fa fa-circle-o-notch fa-spin' style='font-size:24px; color: black'></i></button>
         </div>  
     </div>
+
 </div>
 

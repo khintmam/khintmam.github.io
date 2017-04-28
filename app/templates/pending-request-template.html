@@ -1,0 +1,13 @@
+﻿<h4 style="color: #001f3f">Danh sách lời mời kết bạn</h4>
+<div class="panel panel-default">
+    <div class="panel-body">
+            <br />
+            <div ng-repeat="user in requests">
+                <friend-found user="user"></friend-found>
+            </div>
+            <h5 style="color: #85144b" ng-show="requests.length == 0">Không có lời mời kết bạn mới!</h5><button ng-click="Active()" class="btn btn-xs btn-info"><span ng-show="findfriend == false">Tìm bạn</span> <span ng-show="findfriend == true">Ẩn tìm bạn</span> <i class="fa fa-user-plus" aria-hidden="true"></i></button>
+            <br />
+            <search-friend ng-show="findfriend == true"></search-friend>
+            
+    </div>
+</div>

@@ -1,6 +1,14 @@
 ﻿app.controller('messengerController', ['$scope', 'messengerService', 'authService',
     function ($scope, messengerService, authService) {
- 
+        $scope.showListChat = true;
+        $scope.setListChat = function(){
+            if ($scope.showListChat == true)
+            {
+                $scope.showListChat = false;
+            
+            }
+            else $scope.showListChat = true;
+        };
         $scope.authentication = authService.authentication;
         $scope.conversation = {};
         $scope.chat = {};
@@ -16,7 +24,7 @@
                 {
                     $scope.conversation = results.data;
                     $scope.chat = $scope.conversation[0];
-                    console.log($scope.chat);
+                    
                 }
             }, function (error) {
                 alert('error');

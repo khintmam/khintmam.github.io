@@ -1,20 +1,20 @@
 ﻿<div class="row">
-   
-        <!-- main col left -->
-        <div class="col-sm-2">
-        </div>
-        <div class="col-sm-8">
-           <add-feed></add-feed>
-            
-                    <div id="myList" ng-repeat="feed in listFeed">
-                            <feed-item feed="feed" class="feed-{{feed.id}}"></feed-item>
-                    </div>
-            <div>
-                <button ng-click="isloadfeed==false && GetMoreFeed()" class="form-control btn btn-info" id="btnMoreFeed"><span ng-show="isloadfeed == false">Xem thêm...</span><i ng-show="isloadfeed == true" class='fa fa-circle-o-notch fa-spin' style='font-size:24px; color: black'></i></button>
-            </div>  
-        </div>
-        <div class="col-sm-2">
 
+    <!-- main col left -->
+    <div class="col-sm-2">
+       
+    </div>
+    <div class="col-sm-8">
+        <add-feed></add-feed>
+        <div id="myList" ng-repeat="feed in listFeed" >
+            <feed-item feed="feed" class="feed-{{feed.id}}"></feed-item>
         </div>
+        <div>
+            <button ng-click="isloadfeed==false && GetMoreFeed()" class="form-control btn btn-info" id="btnMoreFeed"><span ng-show="isloadfeed == false">Xem thêm...</span><i ng-show="isloadfeed == true" class='fa fa-circle-o-notch fa-spin' style='font-size:24px; color: black'></i></button>
+        </div>
+    </div>
+    <div class="col-sm-2">
+
+    </div>
 </div>
 

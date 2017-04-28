@@ -1,0 +1,19 @@
+﻿
+    <div class="panel-body">
+        <form>
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input ng-model="keyword" type="text" class="form-control input-lg" placeholder="Tìm bạn bè" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i style="font-size:28px;" class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <br />
+            <div ng-repeat="user in lstUser">
+                <friend-found user="user"></friend-found>
+            </div>
+        </form>
+    </div>

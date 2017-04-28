@@ -83,4 +83,12 @@
                 });
         };
 
+        $scope.CanGetMore = function () {
+            return $scope.chat.messages.length < $scope.chat.length;
+        };
+        $scope.CanHide = function () {
+            return $scope.chat.messages.length > 5;
+        };
+
+
 }]);

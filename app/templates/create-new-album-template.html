@@ -1,0 +1,8 @@
+﻿<h4>Thêm mới một album</h4>
+<form name="frmAddNewAlbum" novalidate>
+    <div class="form-group" style="margin-bottom: 10px;">
+        <label for="nameAlbum">Nhập tên album</label> <label style="color:red;" ng-show="frmEditNameAlbum.nameAlbum.$error.required">(*) Tên phải có nha mắm :p</label>
+        <input class="form-control" type="text" placeholder="Nhập tên album mới !" name="nameAlbum" required ng-model="newname" />
+    </div>
+    <button ng-click="AddNew()" ng-disabled="frmAddNewAlbum.nameAlbum.$error.required" class="btn btn-info">Thêm album</button>
+</form>

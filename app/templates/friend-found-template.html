@@ -1,0 +1,32 @@
+﻿<div class="newnoti well">
+    <div class="row friend-info-{{user.username}}" style="height:auto">
+        <div class="col-xs-4 col-sm-3 ">
+            <img class="img-circle" style="margin-top: 5px; width: 55px; height:55px;cursor:pointer" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{user.avatar}}" />
+        </div>
+        <div class="col-xs-8 col-sm-9">
+            <a href="#user/{{user.username}}"><h6 style="font-weight: bold; color: #0074D9; margin-top: 5px; margin-bottom: 5px; cursor: pointer"><span>{{user.name}}</span></h6></a>
+            <p class="content" style="font-style: italic; margin-bottom: 0px;">
+                <span style="font-weight:bold;">
+                    <span ng-click="SendFriendRequest(user)" style="cursor: pointer;" ng-show="IsNoRelate()">
+                        <span style="color: #0074D9">Gửi lời mời kết bạn </span><button class="btn btn-xs btn-default"><i style="color: #0074D9" class="fa fa-user-plus" aria-hidden="true"></i></button>
+                    </span>
+                    <span ng-show="IsSendRequest() || BeingDenied()">Đã gửi yêu cầu kết bạn <i style="color: #01FF70" class="fa fa-paper-plane" aria-hidden="true"></i></span>
+                    <span ng-show="IsFriend()">Đã là bạn bè <i style="color: #01FF70" class="fa fa-check" aria-hidden="true"></i>| Hủy <i ng-click="UnFriend()" class="fa fa-user-times" aria-hidden="true" style="color: #85144b; cursor: pointer"></i></span>
+                    <span ng-show="IsNeedResponse()">
+                        Trả lời lời mời kết bạn:
+                        <br />
+                        <button ng-click="SendResponseFriend(1)" class="btn btn-xs btn-info">Đồng ý <i class="fa fa-check" aria-hidden="true"></i></button>
+                        <button ng-click="SendResponseFriend(2)" class="btn btn-xs btn-danger">Từ chối  <i class="fa fa-times" aria-hidden="true"></i></button>
+                    </span>
+                    <span ng-show="IsDenied()">
+                        Đã từ chối lời mời kết bạn, gửi lại:
+                        <br />
+                        <button class="btn btn-xs btn-default" ng-click="SendFriendRequest(user)"><i style="color: #0074D9" class="fa fa-user-plus" aria-hidden="true"></i></button>
+                    </span>
+                </span>
+            </p>
+
+            <p class="content">Đến từ: <span style="color: #85144b; font-weight: bold;">{{user.bornPlace}}</span></p>
+        </div>
+    </div>
+</div>

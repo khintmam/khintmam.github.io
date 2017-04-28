@@ -3,12 +3,12 @@
     <div class="panel-body">
         <div style=" display: flex; flex-wrap: wrap;">
             <figure ng-repeat="image in listRecent">
-                <img ng-click="Show($index)" style="cursor:pointer; margin: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)" width="80" height="80" ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{image.url}}" alt="@(item.FeedID == null ? " " : item.Feed.Title)">
-                <a href="" ng-click="Show($index)"><figcaption style="font-size: 9px;">{{image.shortTitle}}</figcaption></a>
+                <img ng-click="ShowImage($index)" style="cursor:pointer; margin: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)" width="80" height="80" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{image.url}}" alt="@(item.FeedID == null ? " " : item.Feed.Title)">
+                <a href="" ng-click="ShowFeed($index)"><figcaption style="font-size: 9px;">{{image.shortTitle}}</figcaption></a>
             </figure>
         </div>
         <br />
-        <div ng-show="auth.userName==user.username"  class="panel-heading"><a href="#Album/User/{{user.username}}" class="pull-right">Album của tôi</a></div>
-        <div ng-show="auth.userName!=user.username" class="panel-heading"><a href="#Album/User/{{user.username}}" class="pull-right">Album của {{user.shortName}}</a></div>
+        <div ng-show="auth.userName==user.username"  class="panel-heading"><a href="#album" class="pull-right">Album của tôi</a></div>
+        <div ng-show="auth.userName!=user.username" class="panel-heading"><a href="#album/{{user.username}}" class="pull-right">Album của {{user.shortName}}</a></div>
     </div>
 </div>

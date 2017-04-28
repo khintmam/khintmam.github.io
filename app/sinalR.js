@@ -1,6 +1,6 @@
-﻿var isHubStart = false;
+﻿
 
-var connection = $.hubConnection('http://ktmsocialapi.somee.com/signalr', { userDefaultPath: false });
+var connection = $.hubConnection('https://ktmsocial.somee.com/signalr', { userDefaultPath: false });
     var myHub = connection.createHubProxy('notiHub');
     myHub.on("NotiAddComment", function (newcomment) {
         var lstElement = $('.feed-id-' + newcomment.feedID);
@@ -9,10 +9,9 @@ var connection = $.hubConnection('http://ktmsocialapi.somee.com/signalr', { user
             var $scope = angular.element(lstElement[i]).scope();
             $scope.$apply(function () {
                 $scope.feed.comments.push(newcomment);
-
+                $scope.feed.cmtQty = $scope.feed.cmtQty + 1;
             });
         }
-       
     });
     myHub.on("NotiSendMessage", function (newmessage) {
        
@@ -22,8 +21,10 @@ var connection = $.hubConnection('http://ktmsocialapi.somee.com/signalr', { user
             $scope = chatboxs.eq(i).scope();
             $scope.$apply(function () {
                 $scope.chat.conversation.messages.push(newmessage);
+                $scope.chat.conversation.length = $scope.chat.conversation.length + 1;
             });
         }
+
     });
     myHub.on("SendIsWriting", function (conversation) {
         var chatboxs = angular.element('.chat-conversation-' + conversation);
@@ -39,6 +40,19 @@ var connection = $.hubConnection('http://ktmsocialapi.somee.com/signalr', { user
         $scope.$apply(function () {
             $scope.listFeed.unshift(newfeed);
         });
+        
+    });
+
+    myHub.on("UpdateStatusRelationship", function (username, status, user_action) {
+        var friends = angular.element('.friend-info-' + username);
+        for (var i = 0; i < friends.length; i++) {
+            $scope = friends.eq(i).scope();
+            $scope.$apply(function () {
+               $scope.user.status = status;
+               $scope.user.user_action = user_action;
+            });
+        }
+
     });
 
     myHub.on("SendNotWriting", function (conversation) {
@@ -50,6 +64,16 @@ var connection = $.hubConnection('http://ktmsocialapi.somee.com/signalr', { user
             });
         }
     });
+    myHub.on('SendNewNoti', function (newnoti) {
+        var $scope = angular.element('#modalNoti').scope();
+        $scope.$apply(function () {
+            $scope.noties.unshift(newnoti);
+            $scope.length = $scope.length + 1;
+            $scope.noti_length = $scope.noti_length + 1;
+        });
+    });
+    
+
 
 connection.start().done(function () {
     console.log('Now connected, connection ID=' + connection.id);

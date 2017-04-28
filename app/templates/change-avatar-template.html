@@ -1,4 +1,4 @@
-﻿<center><img ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{user.avatar.url}}" class="iktmsocialapi.somee.commg-thumbnail" width="150" height="150"></center>
+﻿<center><img ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{user.avatar.url}}" class="iktmsocial.somee.commg-thumbnail" width="150" height="150"></center>
 <form name="frmChangeAvatar" class="form-horizontal" role="form" novalidate style="padding: 10px;">
     <h4>Chọn hình ảnh để cập nhật ảnh đại diện...</h4>
     <div class="form-group" style="padding:14px 14px 0px 14px;">
@@ -11,7 +11,6 @@
                 accept="image/*">
             <i class="fa fa-picture-o" aria-hidden="true"></i> Chọn ảnh
         </button>
-       
         <button ng-disabled="frmChangeAvatar.content.$invalid || file == undefined" ng-click="Change(file)" class="btn btn-primary" type="button">Cập nhật</button>
     </div>
 </form>

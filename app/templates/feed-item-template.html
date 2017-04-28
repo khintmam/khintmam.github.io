@@ -1,9 +1,9 @@
 ﻿<div class="panel panel-default feed-id-{{feed.id}}">
     <div class="panel-heading" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);">
         <a href="/User/TimeLine/{{feed.username}}">
-            <img style="width:75px;height:75px;" ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{feed.imageUser}}" class="img-circle pull-right">
+            <img style="width:75px;height:75px;" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{feed.imageUser}}" class="img-circle pull-right">
         </a>
-       <h4 style="cursor: pointer" ng-click="ViewFeed()" class="text-primary">{{feed.title}}</h4>
+        <h4 style="cursor: pointer" ng-click="ForceViewFeed()" class="text-primary">{{feed.title}}</h4>
     </div>
     <div class="panel-body">
 
@@ -17,8 +17,8 @@
 
         <hr>
 
-        <img ng-click="ViewFeed()" ng-if="(feed.image_Qty == 1 || feed.image_Qty == 0) && feed.image != null" style="cursor: pointer; max-height: 400px;" onclick="" class="img-thumbnail" id="ImageFeed" ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{feed.image}}" />
-        <img ng-click="ViewFeed()" ng-if="feed.image_Qty > 1" style="cursor: pointer;" onclick="" class="img-thumbnail" id="ImageFeed" ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{feed.image}}" />
+        <img ng-click="ViewFeed()" ng-if="(feed.image_Qty == 1 || feed.image_Qty == 0) && feed.image != null" style="cursor: pointer; max-height: 400px;" onclick="" class="img-thumbnail" id="ImageFeed" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{feed.image}}" />
+        <img ng-click="ViewFeed()" ng-if="feed.image_Qty > 1" style="cursor: pointer;" onclick="" class="img-thumbnail" id="ImageFeed" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{feed.image}}" />
         <a ng-click="ViewImageByFeed()" ng-if="feed.image_Qty > 1"><h5><i style='font-size: 17px; ' class='material-icons'>burst_mode</i>Xem tất cả ảnh của bài đăng </h5></a>
         <br />
 
@@ -40,8 +40,7 @@
                     <button ng-click="SadFeed()" class="btn btn-default"><i class="fa fa-frown-o" style="color:red; font-size: 15px;"></i><span class="sad-feed-@feed.ID badge">{{feed.sad}}</span></button>
                     <button ng-click="SendComment()" class="btn btn-default"><i class="fa fa-paper-plane" style="color:blueviolet;font-size:18px;" aria-hidden="true"></i></button>
                 </div>
-                <input ng-model="newMessage" type="text" name="content" class="form-control" placeholder="Thêm bình luận" ng-enter="SendComment()">
-                
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="newMessage" type="text" name="content" class="form-control" placeholder="Thêm bình luận" ng-enter="SendComment()">  
             </div>
         </form>
     </div>

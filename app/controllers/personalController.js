@@ -66,11 +66,17 @@
         };
         $scope.ShowBGImage = function () {
             //Check Image Has Feed or Not
-            $scope.feed = $scope.user.bgUser.feed;
-            ngDialog.open({
-                template: '/app/templates/feed-item-template.html',
-                controller: 'FeedController',
-                scope: $scope
+            var feed = $scope.user.bgUser.feed;
+            feedService.getFeedByID(feed).then(function (results) {
+                $scope.feed = results.data;
+                ngDialog.open({
+                    template: '/app/templates/feed-item-template.html',
+                    controller: 'FeedController',
+                    scope: $scope
+                });
+            }, function (err) {
+                alert(err);
+                console.log(err);
             });
         };
         $scope.ChangeBG = function () {

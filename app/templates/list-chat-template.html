@@ -4,22 +4,16 @@
         color: #39CCCC;
     }
 </style>
-<ul class=" dropdown">
-    <div class="friends-grids" ng-repeat="cvs in conversation">
-        <div class="grids-left">
-            <img style="margin:5px;" ng-src="http://ktmsocialapi.somee.com/Image/User/Upload/{{cvs.avatar}}" />
-        </div>
-        <!--<div class="friend-grid"><p class="flowers"> 21k</p></div>-->
-        <div class="grids-right">
-            <h2 ng-class="{activeborder: curIndex == $index}" ng-click="ChangeChat($index)" style="cursor: pointer">{{cvs.name}} <i class="fa fa-paper-plane" aria-hidden="true"></i></h2>
-            <!--<img src="images/heart.png" />-->
 
-            <div style="padding-left:20px; font-size:12px; font-style:italic;">
-                <span style="font-weight:bold;"><span ng-show="cvs.conversation.messages[cvs.conversation.messages.length - 1].fromUsername == authentication.userName">Bạn: </span><span ng-show="cvs.conversation.messages[cvs.conversation.messages.length - 1].fromUsername != authentication.userName">{{cvs.shortname}}: </span>{{cvs.conversation.messages[cvs.conversation.messages.length - 1].message1}}</span>
-                <br />
-                <code style="font-size:10px;">Lúc: {{cvs.conversation.messages[cvs.conversation.messages.length - 1].timeSpan}}</code>
-            </div>
+<div ng-class="(curIndex == $index) ? 'well newnoti' : 'well oldnoti'" ng-repeat="cvs in conversation">
+    <div class=" row" style="height:auto">
+        <div class="col-xs-4 col-sm-3 ">
+            <img class="img-circle" ng-click="ChangeChat($index)" style="margin-top: 5px; width: 55px; height:55px;cursor:pointer" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{cvs.avatar}}" />
         </div>
-        <div class="clear"> </div>
+        <div class="col-xs-8 col-sm-9">
+            <h6 ng-click="ChangeChat($index)" style="font-weight: bold; color: #0074D9; margin-top: 5px; margin-bottom: 5px; cursor: pointer"><span>{{cvs.name}}</span><i style="color: #7FDBFF" class="fa fa-paper-plane" aria-hidden="true"></i></h6>
+            <p class="content" style="font-style: italic; margin-bottom: 0px;"><span style="font-weight:bold;"><span ng-show="cvs.conversation.messages[cvs.conversation.messages.length - 1].fromUsername == authentication.userName">Bạn: </span><span ng-show="cvs.conversation.messages[cvs.conversation.messages.length - 1].fromUsername != authentication.userName">{{cvs.shortname}}: </span>{{cvs.conversation.messages[cvs.conversation.messages.length - 1].message1}}</span></p>
+            <code style="padding: 0px;">Lúc {{cvs.conversation.messages[cvs.conversation.messages.length - 1].timeSpan}}</code>
+        </div>
     </div>
-</ul>
+</div>

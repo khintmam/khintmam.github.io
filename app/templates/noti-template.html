@@ -1,0 +1,12 @@
+﻿<div ng-class="(data.status==0) ? 'well newnoti' : 'well oldnoti'" ng-click="isLoad==false&&ViewNoti()" ng-animate="'animate'">
+    <div class=" row" style="height:auto">
+        <div class="col-xs-3 col-sm-2 ">
+            <img style="margin-top: 5px; width: 55px; height:55px;" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{data.image}}" />
+        </div>
+        <div class="col-xs-9 col-sm-10">
+            <h6 style="font-weight: bold; color: #0074D9;margin-top: 5px; margin-bottom:5px;"><span ng-show="isLoad==false">{{data.title}}</span><i ng-show="isLoad==true" class='fa fa-circle-o-notch fa-spin' style="color: #0074D9"></i></h6>
+            <p class="content" style="font-style: italic; margin-bottom: 0px;">{{data.content}}</p>
+            <code style="padding: 0px;">Lúc {{data.timeSpan}}</code>
+        </div>
+    </div>
+</div>

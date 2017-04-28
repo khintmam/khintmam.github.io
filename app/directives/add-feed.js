@@ -11,7 +11,7 @@
             $scope.files = files;
             
             if (files == undefined) {
-                $http.post('http://ktmsocialapi.somee.com/api/feed/uploadfeed?username=' + $scope.auth.userName + '&title=' + $scope.title + '&content=' + $scope.content)
+                $http.post('https://ktmsocial.somee.com/api/feed/uploadfeed?username=' + $scope.auth.userName + '&title=' + $scope.title + '&content=' + $scope.content)
                     .then(function (results) {
                         if (results.data == -2) alert(-2);
                         else
@@ -25,6 +25,7 @@
                                  $scope.title = undefined;
                                  $scope.content = undefined;
                                  $scope.files = undefined;
+                                 
                             }
                         }
                     }, function (err) {
@@ -34,7 +35,7 @@
             else
             {
                 files.upload = Upload.upload({
-                    url: 'http://ktmsocialapi.somee.com/api/feed/uploadfeed?username=' + $scope.auth.userName + '&title=' + $scope.title + '&content=' + $scope.content,
+                    url: 'https://ktmsocial.somee.com/api/feed/uploadfeed?username=' + $scope.auth.userName + '&title=' + $scope.title + '&content=' + $scope.content,
                     data: { file: files }
                 });
 
@@ -55,7 +56,6 @@
                               $scope.content = undefined;
                               $scope.files = undefined;
                         }
-                        
                     });
                 }, function (response) {
                     if (response.status > 0)

@@ -19,15 +19,17 @@
                         template: 'Mắm đã sửa bình luận thành công !!!',
                         plain: true
                     });
+                    var commentTarget = $('.comment-id-' + $scope.cmt.id);
+                    for (var i = 0; i < commentTarget.length; i++)
+                    {
+                        angular.copy($scope.cmt, commentTarget.eq(i).scope().info);
+                    }
+                    
                 }
             }, function (error) {
                 alert('error');
             });
-            var commentTarget = $('.comment-id-' + $scope.cmt.id);
-            for (var i = 0; i < commentTarget.length; i++)
-            {
-                angular.copy($scope.cmt, commentTarget.eq(i).scope().info);
-            }
+            
         };
        
 }]);

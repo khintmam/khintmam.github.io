@@ -1,0 +1,14 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading"><a href="#viewrecentimage/{{user.username}}" class="pull-right">Xem tất cả</a> <h4>Bạn bè</h4></div>
+    <div class="panel-body">
+        <div style=" display: flex; flex-wrap: wrap;">
+            <figure ng-repeat="f in listFriend">
+                <a href="#/user/{{f.username}}"><img class="img-circle" style="cursor:pointer; margin: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)" width="80" height="80" ng-src="https://ktmsocial.somee.com/Image/User/Upload/{{f.avatar}}"></a>
+                    <a href="#/user/{{f.username}}"><figcaption style="font-size: 9px;">{{f.name | shortname}}</figcaption></a>
+        </figure>
+        </div>
+        <br />
+        <a href="" ng-click="ShowSearchFriend()"><i class="fa fa-user-plus" aria-hidden="true"></i> Tìm bạn bè <span class="badge">{{user.friendNumber}}</span></a><br>
+        
+    </div>
+</div>

@@ -1,17 +1,13 @@
 ﻿<div class="well" style="padding-bottom: 0px; margin: 0px 0px 10px 0px; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)">
     <form id="addfeed" class="form-horizontal" role="form" novadilation name="myform">
-        <ul style="list-style-type: none; padding-left: 0px;">
-            <li>
-                <span ng-show="myform.title.$error.required && !myform.title.$pristine" class="bg-danger">Nhập tiêu đề mắm ời mắm ơi</span>
-            </li>
-            <li>
-                <span ng-show="myform.content.$error.required && !myform.content.$pristine" class="bg-danger">Chưa nhập nội dung kìa :p</span>
-            </li>
-        </ul>
+      
         <h4>Có gì mới không mắm ?</h4>
-        <input type="text" ng-model="title" name="title" placeholder="Tiêu đề của mắm..." class="form-control" required />
+        
         <div class="form-group" style="padding:14px;">
-            <textarea ng-model="content" name="content" class="form-control" placeholder="Cập nhật status của bạn" rows="3" required></textarea>
+            <label for="title">Nhập tiêu đề: </label> <label ng-show="myform.title.$error.required" style="color:red;">(*) Tiêu đề phải có nội dung</label>
+            <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" ng-model="title" name="title" placeholder="Tiêu đề của mắm..." class="form-control" required />
+            <label for="title">Nhập nội dung: </label> <label ng-show="myform.content.$error.required" style="color:red;">(*) Nội dung phải có</label>
+            <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="content" name="content" class="form-control" placeholder="Cập nhật status của bạn" rows="3" required></textarea>
             <br />
             <div style=" display: flex; flex-wrap: wrap;">
 
