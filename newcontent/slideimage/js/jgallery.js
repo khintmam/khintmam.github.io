@@ -1,6 +1,6 @@
 /*!
  * jGallery v1.3.3
- * http://jgallery.jakubkowalczyk.pl/
+ * https://jgallery.jakubkowalczyk.pl/
  *
  * Released under the MIT license
  *
@@ -33,8 +33,8 @@
         thumbHeightOnFullScreen: 100, //px
         canMinimalizeThumbnails: true,
         hideThumbnailsOnInit: false,
-        transition: 'moveToRight_moveFromLeft', // http://jgallery.jakubkowalczyk.pl/customize
-        transitionBackward: 'moveToLeft_moveFromRight', // http://jgallery.jakubkowalczyk.pl/customize
+        transition: 'moveToRight_moveFromLeft', // https://jgallery.jakubkowalczyk.pl/customize
+        transitionBackward: 'moveToLeft_moveFromRight', // https://jgallery.jakubkowalczyk.pl/customize
         transitionWaveDirection: 'forward', // [ forward | backward ]
         transitionCols: 1,
         transitionRows: 5,

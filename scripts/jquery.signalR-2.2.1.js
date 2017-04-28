@@ -2,7 +2,7 @@
 /*global window:false */
 /*!
  * ASP.NET SignalR JavaScript Library v2.2.1
- * http://signalr.net/
+ * https://signalr.net/
  *
  * Copyright (c) .NET Foundation. All rights reserved.
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
@@ -202,7 +202,7 @@
         },
 
         firefoxMajorVersion: function (userAgent) {
-            // Firefox user agents: http://useragentstring.com/pages/Firefox/
+            // Firefox user agents: https://useragentstring.com/pages/Firefox/
             var matches = userAgent.match(/Firefox\/(\d+)/);
             if (!matches || !matches.length || matches.length < 2) {
                 return 0;

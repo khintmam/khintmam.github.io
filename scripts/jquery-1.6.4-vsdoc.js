@@ -9,7 +9,7 @@
 
 /*!
 * jQuery JavaScript Library v1.6.4
-* http://jquery.com/
+* https://jquery.com/
 *
 * Distributed in whole under the terms of the MIT
 *
@@ -35,7 +35,7 @@
 * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 *
 * Includes Sizzle.js
-* http://sizzlejs.com/
+* https://sizzlejs.com/
 * Copyright 2010, The Dojo Foundation
 * Released under the MIT and BSD Licenses.
 */
@@ -755,7 +755,7 @@ jQuery.ajaxPrefilter = function( dataTypeExpression, func ) {
 			}
 		}
 	};
-jQuery.ajaxSettings = { "url": 'http://localhost:25813/',
+jQuery.ajaxSettings = { "url": 'https://localhost:25813/',
 "isLocal": false,
 "global": true,
 "type": 'GET',
@@ -2217,7 +2217,7 @@ jQuery.parseJSON = function( data ) {
 		}
 
 		// Make sure the incoming data is actual JSON
-		// Logic borrowed from http://json.org/json2.js
+		// Logic borrowed from https://json.org/json2.js
 		if ( rvalidchars.test( data.replace( rvalidescape, "@" )
 			.replace( rvalidtokens, "]" )
 			.replace( rvalidbraces, "")) ) {
@@ -3470,7 +3470,7 @@ jQuery.prototype.children = function( until, selector ) {
 			// The variable 'args' was introduced in
 			// https://github.com/jquery/jquery/commit/52a0238
 			// to work around a bug in Chrome 10 (Dev) and should be removed when the bug is fixed.
-			// http://code.google.com/p/v8/issues/detail?id=1050
+			// https://code.google.com/p/v8/issues/detail?id=1050
 			args = slice.call(arguments);
 
 		if ( !runtil.test( name ) ) {
@@ -3640,7 +3640,7 @@ jQuery.prototype.contents = function( until, selector ) {
 			// The variable 'args' was introduced in
 			// https://github.com/jquery/jquery/commit/52a0238
 			// to work around a bug in Chrome 10 (Dev) and should be removed when the bug is fixed.
-			// http://code.google.com/p/v8/issues/detail?id=1050
+			// https://code.google.com/p/v8/issues/detail?id=1050
 			args = slice.call(arguments);
 
 		if ( !runtil.test( name ) ) {
@@ -5267,7 +5267,7 @@ jQuery.prototype.next = function( until, selector ) {
 			// The variable 'args' was introduced in
 			// https://github.com/jquery/jquery/commit/52a0238
 			// to work around a bug in Chrome 10 (Dev) and should be removed when the bug is fixed.
-			// http://code.google.com/p/v8/issues/detail?id=1050
+			// https://code.google.com/p/v8/issues/detail?id=1050
 			args = slice.call(arguments);
 
 		if ( !runtil.test( name ) ) {
@@ -5299,7 +5299,7 @@ jQuery.prototype.nextAll = function( until, selector ) {
 			// The variable 'args' was introduced in
 			// https://github.com/jquery/jquery/commit/52a0238
 			// to work around a bug in Chrome 10 (Dev) and should be removed when the bug is fixed.
-			// http://code.google.com/p/v8/issues/detail?id=1050
+			// https://code.google.com/p/v8/issues/detail?id=1050
 			args = slice.call(arguments);
 
 		if ( !runtil.test( name ) ) {
@@ -5336,7 +5336,7 @@ jQuery.prototype.nextUntil = function( until, selector ) {
 			// The variable 'args' was introduced in
 			// https://github.com/jquery/jquery/commit/52a0238
 			// to work around a bug in Chrome 10 (Dev) and should be removed when the bug is fixed.
-			// http://code.google.com/p/v8/issues/detail?id=1050
+			// https://code.google.com/p/v8/issues/detail?id=1050
 			args = slice.call(arguments);
 
 		if ( !runtil.test( name ) ) {
@@ -5527,7 +5527,7 @@ jQuery.prototype.parent = function( until, selector ) {
 			// The variable 'args' was introduced in
 			// https://github.com/jquery/jquery/commit/52a0238
 			// to work around a bug in Chrome 10 (Dev) and should be removed when the bug is fixed.
-			// http://code.google.com/p/v8/issues/detail?id=1050
+			// https://code.google.com/p/v8/issues/detail?id=1050
 			args = slice.call(arguments);
 
 		if ( !runtil.test( name ) ) {
@@ -5559,7 +5559,7 @@ jQuery.prototype.parents = function( until, selector ) {
 			// The variable 'args' was introduced in
 			// https://github.com/jquery/jquery/commit/52a0238
 			// to work around a bug in Chrome 10 (Dev) and should be removed when the bug is fixed.
-			// http://code.google.com/p/v8/issues/detail?id=1050
+			// https://code.google.com/p/v8/issues/detail?id=1050
 			args = slice.call(arguments);
 
 		if ( !runtil.test( name ) ) {
@@ -5596,7 +5596,7 @@ jQuery.prototype.parentsUntil = function( until, selector ) {
 			// The variable 'args' was introduced in
 			// https://github.com/jquery/jquery/commit/52a0238
 			// to work around a bug in Chrome 10 (Dev) and should be removed when the bug is fixed.
-			// http://code.google.com/p/v8/issues/detail?id=1050
+			// https://code.google.com/p/v8/issues/detail?id=1050
 			args = slice.call(arguments);
 
 		if ( !runtil.test( name ) ) {
@@ -5710,7 +5710,7 @@ jQuery.prototype.prev = function( until, selector ) {
 			// The variable 'args' was introduced in
 			// https://github.com/jquery/jquery/commit/52a0238
 			// to work around a bug in Chrome 10 (Dev) and should be removed when the bug is fixed.
-			// http://code.google.com/p/v8/issues/detail?id=1050
+			// https://code.google.com/p/v8/issues/detail?id=1050
 			args = slice.call(arguments);
 
 		if ( !runtil.test( name ) ) {
@@ -5742,7 +5742,7 @@ jQuery.prototype.prevAll = function( until, selector ) {
 			// The variable 'args' was introduced in
 			// https://github.com/jquery/jquery/commit/52a0238
 			// to work around a bug in Chrome 10 (Dev) and should be removed when the bug is fixed.
-			// http://code.google.com/p/v8/issues/detail?id=1050
+			// https://code.google.com/p/v8/issues/detail?id=1050
 			args = slice.call(arguments);
 
 		if ( !runtil.test( name ) ) {
@@ -5779,7 +5779,7 @@ jQuery.prototype.prevUntil = function( until, selector ) {
 			// The variable 'args' was introduced in
 			// https://github.com/jquery/jquery/commit/52a0238
 			// to work around a bug in Chrome 10 (Dev) and should be removed when the bug is fixed.
-			// http://code.google.com/p/v8/issues/detail?id=1050
+			// https://code.google.com/p/v8/issues/detail?id=1050
 			args = slice.call(arguments);
 
 		if ( !runtil.test( name ) ) {
@@ -6400,7 +6400,7 @@ jQuery.prototype.siblings = function( until, selector ) {
 			// The variable 'args' was introduced in
 			// https://github.com/jquery/jquery/commit/52a0238
 			// to work around a bug in Chrome 10 (Dev) and should be removed when the bug is fixed.
-			// http://code.google.com/p/v8/issues/detail?id=1050
+			// https://code.google.com/p/v8/issues/detail?id=1050
 			args = slice.call(arguments);
 
 		if ( !runtil.test( name ) ) {
